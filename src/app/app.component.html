@@ -8,8 +8,11 @@
     <p>{{segundaNota}}</p>
     <p>{{terceiraNota}}</p>
     <p>{{quartaNota}}</p>
-    <p class="card-text">{{resultado}} {{media | number: '1.1-2'}}.</p>
-    <a href="#" class="btn btn-primary">Aprovado</a>
+    <p class="card-text">{{resultado}} {{media | number: '1.1-1'}}.</p>
+    <span *ngIf="media >= 7; else elseBlock" class="badge badge-primary">Aprovado</span>
+    <ng-template #elseBlock>
+      <span class="badge badge-danger">Reprovado</span>
+    </ng-template>
   </div>
 </div>
 <router-outlet></router-outlet>
